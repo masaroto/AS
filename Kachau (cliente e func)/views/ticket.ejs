@@ -1,0 +1,30 @@
+<% include partials/header.ejs %>
+	<div class="container mt-4 card bg-light" style="width: 200rem;">
+	  <h5>Enviar Ticket</h5>
+	    <form action="/register" method="POST">
+	        
+          <div class="form-row mt-2">
+            <div class="form-group col-md-6">
+              <label for="inputName4">Name*</label>
+              <input type="first name" class="form-control" name="ticket[name]" placeholder="Albert Saint" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLastName4">Email*</label>
+              <input type="email" class="form-control" name="ticket[email]" placeholder="Email" required>
+            </div>
+          </div>
+	             
+          <div class="form-group">
+            <label>Assunto*</label>
+            <input type="text" class="form-control" name="ticket[assunto]" placeholder="Fone quebrado, item errado recebido..." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputAddress">Descrição do problema*</label>
+            <textarea class="form-control" aria-label="With textarea" name="ticket[desc]"></textarea>
+          </div>
+          
+          
+          <a class="mb-4 btn btn-primary" href="/ticketEnviado">Enviar</a>
+        </form>
+	</div>

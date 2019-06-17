@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/navbar.css">
+	
+	<title>UserManager</title>
+</head>
+<body>
+	<% include partials/header.ejs %>
+	<table class="table table-light table-striped">
+      <thead>
+        <tr>
+            <!--<th scope="col"></th>-->
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+	   <tr>
+            <!--<th scope="row">-->
+            <!--    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Delete</button>-->
+            <!--</th>-->
+            <td>
+                <%=user.Name%> <%=user.LastName%> 
+                <a class="btn btn-outline-success btn-sm" data-toggle="collapse" href="#input1" role="button" aria-expanded="false" aria-controls="collapseExample">Edit</a>
+                <div class="collapse" id="input1">
+                    <div class="card card-body">
+                        <form action="/pu/adm/ger/<%=user._id %>?_method=PUT" method="POST">
+                            <input class="form-control mb-2" type="text" value="<%= user.Name%>" name="updateUser[Name]">
+                            <input class="form-control" type="text" value="<%= user.LastName%>" name="updateUser[LastName]">
+                            <button type="submit" class="btn btn-primary btn-sm mt-2">update</button>
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+            </td>
+            
+            <td>
+                <%=user.Email%> 
+                <a class="btn btn-outline-success btn-sm" data-toggle="collapse" href="#input2" role="button" aria-expanded="false" aria-controls="collapseExample">Edit</a>
+                <div class="collapse" id="input2">
+                    <div class="card card-body">
+                       <form action="/pu/adm/ger/<%=user._id %>?_method=PUT" method="POST">
+                            <input class="form-control mb-2" type="text" value="<%= user.Email%>" name="updateUser[Email]">
+                            <button type="submit" class="btn btn-primary btn-sm mt-2">update</button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+            <td style="width = 20px;">
+                <div>
+                    <%=user.Telefone%>
+                    <a class="btn btn-outline-success btn-sm" data-toggle="collapse" href="#input3" role="button" aria-expanded="false" aria-controls="collapseExample">Edit</a>
+                    <div class="collapse" id="input3">
+                        <div class="card card-body">
+                            <form action="/pu/adm/ger/<%=user._id %>?_method=PUT" method="POST">
+                                <input class="form-control mb-2" type="text" value="<%= user.Telefone%>" name="updateUser[Telefone]">
+                                <button type="submit" class="btn btn-primary btn-sm mt-2">update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </td>
+        </tr>
+                
+            
+	    
+        
+        
+      </tbody>
+    </table>
+	
+	
+	   
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

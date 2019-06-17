@@ -1,0 +1,41 @@
+<% include partials/header.ejs %>
+    <div class="container">
+        
+        <div class="card mt-2 mb-2">
+            <div>
+                <a class="btn btn-primary" href="/"> < continuar comprando</a>    
+            </div>
+            
+            <% if(prods.length == 0){%>
+                <h5>Carrinho vazio</h5>
+            <% } else {%>
+                
+                
+                <h5>Produtos:</h5>
+                <div class="row mt-2">
+	                <%var preco = 0;%>
+                    <%prods.forEach(function(prod){%>
+                    <div class="col-md-4 col-sm-6 mb-5">
+        	            <div class="card" style="width: 18rem;">
+                          <img src="<%=prod.img%>" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title"> <%=prod.name%> </h5>
+                            <p class="card-text"> <%=prod.desc%> </p>
+                            <h5 class="card-title" style="color: green">R$  <%=prod.preco%> </h5>
+                            <%preco = preco + prod.preco%>
+                            <form method="POST" action="/itemDelete">
+                                <input type="hidden" name="prod" value="<%=prod._id%>">
+                                <button type="submit" class="btn btn-danger btn-sm" >- carrinho</button>
+                            </form>
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <% }); %>
+	                
+	    </div>
+               <h5 class="ml-2">Total: R$<%=preco%></h5> 
+               <a class="btn btn-success" href="/compra">Finalizar compra</a>
+            <% } %>
+        </div>
+    </div>
